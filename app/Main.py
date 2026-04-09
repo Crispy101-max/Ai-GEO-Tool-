@@ -6,9 +6,6 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import streamlit as st
-from app.utils.session_state import init_session_state
-from app.components.progress import render_progress
 
 st.set_page_config(page_title="GEO POC", layout="wide")
 
