@@ -1,13 +1,12 @@
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-# Ensure repo root is on sys.path regardless of how Streamlit runs this
-ROOT_DIR = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT_DIR))
-
+import app.bootstrap  # noqa: F401
 import streamlit as st
 from app.utils.session_state import init_session_state
 from app.components.progress import render_progress
+# ... rest of file
 
 st.set_page_config(page_title="Business Intake", layout="wide")
 init_session_state()
