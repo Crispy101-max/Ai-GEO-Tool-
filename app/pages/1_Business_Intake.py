@@ -1,16 +1,14 @@
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-import app.bootstrap  # noqa: F401
+_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(_ROOT))
+sys.path.insert(0, str(_ROOT / "app" / "components"))
+sys.path.insert(0, str(_ROOT / "app" / "utils"))
+
 import streamlit as st
-from app.utils.session_state import init_session_state
-from app.components.progress import render_progress
-# ... rest of file
-
-st.set_page_config(page_title="Business Intake", layout="wide")
-init_session_state()
-render_progress()
+from session_state import init_session_state
+from progress import render_progress
 
 st.title("1. Business Intake")
 
