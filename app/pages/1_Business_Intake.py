@@ -1,17 +1,15 @@
 import sys
 from pathlib import Path
 
+# Ensure repo root is on sys.path regardless of how Streamlit runs this
 ROOT_DIR = Path(__file__).resolve().parents[2]
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
+sys.path.insert(0, str(ROOT_DIR))
 
 import streamlit as st
 from app.utils.session_state import init_session_state
 from app.components.progress import render_progress
 
-
 st.set_page_config(page_title="Business Intake", layout="wide")
-
 init_session_state()
 render_progress()
 
