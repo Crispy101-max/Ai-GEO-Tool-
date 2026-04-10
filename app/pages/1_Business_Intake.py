@@ -1,25 +1,63 @@
+from pathlib import Path
+import sys
+
+APP_DIR = Path(__file__).resolve().parents[1]
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
 import streamlit as st
-import app.bootstrap  # noqa: F401
+import bootstrap  # noqa: F401
 
 from utils.session_state import init_session_state
-from app.components.progress import render_progress
+from components.progress import render_progress
 
 st.set_page_config(page_title="Business Intake", layout="wide")
+
 init_session_state()
 render_progress()
+
+if "intake" not in st.session_state:
+    st.session_state.intake = {}
 
 st.title("1. Business Intake")
 
 with st.form("business_intake_form"):
-    website_url = st.text_input("Website URL", value=st.session_state.intake.get("website_url", ""))
-    business_name = st.text_input("Business name", value=st.session_state.intake.get("business_name", ""))
-    industry = st.text_input("Industry", value=st.session_state.intake.get("industry", ""))
-    niche = st.text_input("Niche", value=st.session_state.intake.get("niche", ""))
-    target_audience = st.text_area("Target audience", value=st.session_state.intake.get("target_audience", ""))
-    products_services = st.text_area("Products / services", value=st.session_state.intake.get("products_services", ""))
-    differentiators = st.text_area("Differentiators", value=st.session_state.intake.get("differentiators", ""))
-    recommendation_goals = st.text_area("What the client wants to be recommended for", value=st.session_state.intake.get("recommendation_goals", ""))
-    external_ai_visibility_data = st.text_area("External AI visibility data (optional)", value=st.session_state.intake.get("external_ai_visibility_data", ""))
+    website_url = st.text_input(
+        "Website URL",
+        value=st.session_state.intake.get("website_url", "")
+    )
+    business_name = st.text_input(
+        "Business name",
+        value=st.session_state.intake.get("business_name", "")
+    )
+    industry = st.text_input(
+        "Industry",
+        value=st.session_state.intake.get("industry", "")
+    )
+    niche = st.text_input(
+        "Niche",
+        value=st.session_state.intake.get("niche", "")
+    )
+    target_audience = st.text_area(
+        "Target audience",
+        value=st.session_state.intake.get("target_audience", "")
+    )
+    products_services = st.text_area(
+        "Products / services",
+        value=st.session_state.intake.get("products_services", "")
+    )
+    differentiators = st.text_area(
+        "Differentiators",
+        value=st.session_state.intake.get("differentiators", "")
+    )
+    recommendation_goals = st.text_area(
+        "What the client wants to be recommended for",
+        value=st.session_state.intake.get("recommendation_goals", "")
+    )
+    external_ai_visibility_data = st.text_area(
+        "External AI visibility data (optional)",
+        value=st.session_state.intake.get("external_ai_visibility_data", "")
+    )
 
     submitted = st.form_submit_button("Save intake")
 
