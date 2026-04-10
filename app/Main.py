@@ -1,6 +1,6 @@
 import streamlit as st
 
-from app.utils.session_state import init_session_state
+from utils.session_state import init_session_state
 
 st.set_page_config(page_title="GEO POC", layout="wide")
 
@@ -20,3 +20,4 @@ st.markdown(
     6. Summary
     """
 )
+``
