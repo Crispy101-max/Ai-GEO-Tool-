@@ -20,4 +20,3 @@ st.markdown(
     6. Summary
     """
 )
-``
