@@ -1,8 +1,9 @@
 import app.bootstrap  # noqa: F401
 
 import streamlit as st
-from app.utils.session_state import init_session_state
-from app.components.progress import render_progress
+from utils.session_state import init_session_state
+from components.progress import render_progress
+``
 
 st.set_page_config(page_title="Business Intake", layout="wide")
 
