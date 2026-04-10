@@ -2,7 +2,7 @@ import json
 import streamlit as st
 import app.bootstrap  # noqa: F401
 
-from app.utils.session_state import init_session_state
+from utils.session_state import init_session_state
 from app.components.progress import render_progress
 from core.report_builder import build_summary_markdown
 
