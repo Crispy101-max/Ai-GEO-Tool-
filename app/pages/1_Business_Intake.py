@@ -1,14 +1,14 @@
 import sys
 from pathlib import Path
 
-_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(_ROOT))
-sys.path.insert(0, str(_ROOT / "app" / "components"))
-sys.path.insert(0, str(_ROOT / "app" / "utils"))
+ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 import streamlit as st
-from session_state import init_session_state
-from progress import render_progress
+from app.utils.session_state import init_session_state
+from app.components.progress import render_progress
+
 
 st.title("1. Business Intake")
 
