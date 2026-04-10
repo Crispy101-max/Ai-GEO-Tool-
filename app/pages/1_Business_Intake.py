@@ -8,7 +8,7 @@ if str(APP_DIR) not in sys.path:
 
 import streamlit as st
 from utils.session_state import init_session_state
-from components.progress import render_progress
+from app.components.progress import render_progress
 
 
 st.set_page_config(page_title="Business Intake", layout="wide")
